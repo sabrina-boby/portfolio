@@ -1,6 +1,32 @@
 import React from 'react'
+import { NavLink } from 'react-router'
 
 const Navbar = () => {
+  const links = (
+    <>
+      <NavLink
+        to="/"
+        className={({ isActive }) =>
+          isActive
+            ? "border-b-2 border-black dark:border-white ml-4 mr-4 font-bold"
+            : "ml-4 mr-4"
+        }
+      >
+        Home
+      </NavLink>
+
+      <NavLink
+        to="/my-booked-tutors"
+        className={({ isActive }) =>
+          isActive ? "border-b-3 border-black ml-4 mr-4 font-bold" : "ml-4 mr-4"
+        }
+      >
+        My booked tutors
+      </NavLink>
+
+    </>
+  )
+
   return (
     <div className="navbar bg-base-100 shadow-sm">
       <div className="navbar-start">
@@ -11,18 +37,18 @@ const Navbar = () => {
           <ul
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-            <li><a>Item 1</a></li>
-            <li><a>Item 2</a></li>
-            <li><a>Item 3</a></li>
+            {/* ============== */}
+            {links}
+            {/* ============== */}
           </ul>
         </div>
         <a className="btn btn-ghost text-xl">daisyUI</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
-          <li><a>Item 1</a></li>
-          <li><a>Item 2</a></li>
-          <li><a>Item 3</a></li>
+          {/* ============== */}
+          {links}
+          {/* ============== */}
         </ul>
       </div>
       <div className="navbar-end">
